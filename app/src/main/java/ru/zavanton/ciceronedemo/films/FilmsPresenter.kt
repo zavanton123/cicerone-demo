@@ -1,12 +1,19 @@
 package ru.zavanton.ciceronedemo.films
 
-import android.util.Log
 import moxy.InjectViewState
 import moxy.MvpPresenter
+import ru.terrakok.cicerone.Router
+import ru.zavanton.ciceronedemo.films.di.FilmsFragmentScope
+import ru.zavanton.ciceronedemo.navigation.FilmDetailsScreen
+import javax.inject.Inject
 
+@FilmsFragmentScope
 @InjectViewState
-class FilmsPresenter : MvpPresenter<FilmsView>() {
-    fun echo() {
-        Log.d("zavanton", "zavanton - films presenter")
+class FilmsPresenter @Inject constructor(
+    private val router: Router
+) : MvpPresenter<FilmsView>() {
+
+    fun goToDetails() {
+        router.navigateTo(FilmDetailsScreen)
     }
 }
