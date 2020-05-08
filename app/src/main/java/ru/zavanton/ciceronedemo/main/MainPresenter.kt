@@ -1,14 +1,18 @@
 package ru.zavanton.ciceronedemo.main
 
-import android.util.Log
 import moxy.InjectViewState
 import moxy.MvpPresenter
+import ru.zavanton.ciceronedemo.app.App
+import ru.zavanton.ciceronedemo.navigation.FilmsScreen
 
 @InjectViewState
 class MainPresenter : MvpPresenter<MainView>() {
 
-    fun echo() {
+    private val router = App.instance.router
 
-        Log.d("zavanton", "zavanton - presenter is on")
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+
+        router.newRootScreen(FilmsScreen)
     }
 }

@@ -10,6 +10,13 @@ import ru.zavanton.ciceronedemo.R
 
 class FilmsFragment : MvpAppCompatFragment(), FilmsView {
 
+    companion object {
+
+        fun newInstance(): FilmsFragment {
+            return FilmsFragment()
+        }
+    }
+
     @InjectPresenter
     lateinit var presenter: FilmsPresenter
 
