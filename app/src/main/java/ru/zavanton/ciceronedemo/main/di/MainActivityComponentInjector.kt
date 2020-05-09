@@ -10,6 +10,7 @@ object MainActivityComponentInjector {
         mainActivityComponent ?: DaggerMainActivityComponent
             .builder()
             .navigationDependencies(AppComponentInjector.provideAppComponent())
+            .provideAge(33)
             .build()
             .also {
                 mainActivityComponent = it
